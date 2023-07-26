@@ -1,0 +1,91 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'bootstrap-5.0.2-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <style>
+      body {
+        background-color:#edf2f4;
+      }
+
+      .accordion-button:focus {
+          box-shadow: none;
+          border-color: rgba(0,0,0,.125);
+      }
+
+      .accordion-button:not(.collapsed)::after {
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23edf2f4' %3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+      }
+
+      .active {
+      background-color: red !important;
+      }
+
+      .accordion-button:not(.collapsed) {
+          color: white;
+          background-color: #8d99ae;
+      }
+
+      a.my-link
+      {
+          color: black;
+          text-decoration: none;
+      }
+
+      a.my-link:hover
+      {
+          color: #ef233c;
+          text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center" id="about">
+          <div class="col-4 pt-1">
+            <img src="{% static 'logo.png' %}" width="75px">
+          </div>
+          <div class="col-4 text-center">
+            <h1 class="blog-header-logo text-dark" >Герасимова Марина Дмитриевна</h1>
+            <h4 style="color: #707070" >Нотариус города Москвы</h4>
+          </div>
+          <div class="col-4 pt-1 d-flex align-items-end flex-column">
+            <img src="{% static 'gerb.png' %}" width="75px">
+          </div>
+        </div>
+      </header>
+
+      <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+          <a class="p-2 link-secondary" href="/#about">О нотариусе</a>
+          <a class="p-2 link-secondary" href="/#record">Записаться</a>
+          <a class="p-2 link-secondary" href="/#contacts">Контакты</a>
+          <a class="p-2 link-secondary" href="/documents">Документы</a>
+          <a class="p-2 link-secondary" href="/FAQ">FAQ</a>
+        </nav>
+      </div>
+    </div>
+
+    <main class="container">
+        {%block content%}
+
+        {%endblock%}
+    </main>
+
+<!--    <footer class="blog-footer">-->
+
+<!--    </footer>-->
+
+
+    <script src="{% static 'bootstrap-5.0.2-dist/js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
